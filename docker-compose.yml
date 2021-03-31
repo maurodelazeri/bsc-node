@@ -7,7 +7,7 @@ networks:
 
 services:
   bsc:
-    image: bsc
+    image: zinnionlcc/bsc
     hostname: bsc
     container_name: bsc
     restart: unless-stopped
