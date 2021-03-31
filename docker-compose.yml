@@ -3,7 +3,7 @@ version: "3"
 networks:
   default:
     external:
-      name: external
+      name: external-example
 
 services:
   bsc:
