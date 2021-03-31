@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  default:
+    external:
+      name: external
+
+services:
+  bsc:
+    image: bsc
+    hostname: bsc
+    container_name: bsc
+    restart: unless-stopped
+    ports:
+      - 27146:27146/tcp
+      - 27147:27147/tcp
+      - 26660:26660/tcp
+      - 900:900/tcp
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2m"
+        max-file: "10"
