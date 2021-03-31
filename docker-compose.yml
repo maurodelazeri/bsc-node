@@ -15,7 +15,7 @@ services:
       - 27146:27146/tcp
       - 27147:27147/tcp
       - 26660:26660/tcp
-      - 900:900/tcp
+      - 9060:9060/tcp
     logging:
       driver: "json-file"
       options:

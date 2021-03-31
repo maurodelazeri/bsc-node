@@ -16,7 +16,7 @@ ARG HOST_USER_GID=1000
 RUN set -ex \
 && groupadd --gid "$HOST_USER_GID" bnbchaind \
 && useradd --uid "$HOST_USER_UID" --gid "$HOST_USER_GID" --create-home --shell /bin/bash bnbchaind \
-&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget \
+&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget vim \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
 && cd /usr/local/bin/ \
@@ -41,7 +41,7 @@ RUN set -ex \
 # Prometheus is enabled on port 26660 by default, and the endpoint is /metrics.
 
 VOLUME /home/bnbchaind/.bnbchaind/
-EXPOSE 27146 27147 26660 900
+EXPOSE 27146 27147 26660 9060
 
 # CMD /bin/bash
 ENTRYPOINT ["/usr/local/bin/bnbchaind", "start"]
