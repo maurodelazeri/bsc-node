@@ -31,12 +31,13 @@ services:
       - --maxpeers=100
       - --metrics
       - --pprof
+      - --rpcaddr=0.0.0.0
       - --ws
+      - --wsaddr=0.0.0.0
       - --wsorigins="*"
       - --wsapi
       - eth,net,web3
-      - --wsport="8546"
-      - "0.0.0.0"
+      - --wsport=8546
       - --datadir
       - "/var/lib/goethereum"
       - --config 
