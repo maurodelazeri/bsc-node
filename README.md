@@ -3,7 +3,7 @@
 ## Check sync status
 
 ```
-docker exec binance-smart-chain-node bsc attach --exec eth.syncing
+docker exec bsc_geth bsc attach --exec eth.syncing
 ```
 
 [original BSC repo](https://github.com/binance-chain/bsc)

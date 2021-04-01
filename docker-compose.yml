@@ -18,7 +18,7 @@ services:
       - "30311:30311/udp"
       - "30311:30311"
     volumes:
-      - ./goethereum:/var/lib/goethereum
+      - ./goethereum:/root/.ethereum/
     stop_signal: SIGINT
     stop_grace_period: 2m
     command:
@@ -40,7 +40,7 @@ services:
       - eth,net,web3
       - --wsport=8547
       - --datadir
-      - "/var/lib/goethereum"
+      - "/root/.ethereum"
       - --config 
       - /config.toml
     logging:
