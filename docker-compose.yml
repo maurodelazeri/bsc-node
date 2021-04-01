@@ -11,12 +11,11 @@ services:
     hostname: bsc_geth
     restart: unless-stopped
     ports:
+      - "8547:8547" # Websocket
       - "8575:8575"
-      - "30311:30311/udp"
       - "8576:8576"
-      - "8686:8686"
-      - "8546:8546" # Websocket
-      - "8577:8577" 
+      - "8577:8577"
+      - "30311:30311/udp"
       - "30311:30311"
     volumes:
       - ./goethereum:/var/lib/goethereum
@@ -31,13 +30,15 @@ services:
       - --maxpeers=100
       - --metrics
       - --pprof
+      - --rpc
+      - --rpcport=8575
       - --rpcaddr=0.0.0.0
       - --ws
       - --wsaddr=0.0.0.0
       - --wsorigins="*"
       - --wsapi
       - eth,net,web3
-      - --wsport=8546
+      - --wsport=8547
       - --datadir
       - "/var/lib/goethereum"
       - --config 

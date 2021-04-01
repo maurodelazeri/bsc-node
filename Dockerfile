@@ -15,4 +15,4 @@ RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/
     chmod +x /usr/local/bin/bsc
 
 
-EXPOSE 8575 8576 8577 8546 30311 30311/udp
+EXPOSE 8547 8575 8576 8577 30311 30311/udp
