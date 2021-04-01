@@ -1,21 +1,46 @@
 version: "3"
 
 networks:
-  default:
-    external:
-      name: external-example
+  monitor-net:
+    driver: bridge
 
 services:
-  bsc:
-    image: zinnionlcc/bsc
-    hostname: bsc
-    container_name: bsc
+  bsc_geth:
+    image: zinnionlcc/bsc_geth
+    container_name: bsc_geth
+    hostname: bsc_geth
     restart: unless-stopped
     ports:
-      - 27146:27146/tcp
-      - 27147:27147/tcp
-      - 26660:26660/tcp
-      - 9060:9060/tcp
+      - "8575:8575"
+      - "30311:30311/udp"
+      - "8576:8576"
+      - "8686:8686"
+      - "8546:8546" # Websocket
+      - "8577:8577" 
+      - "30311:30311"
+    volumes:
+      - ./goethereum:/var/lib/goethereum
+    stop_signal: SIGINT
+    stop_grace_period: 2m
+    command:
+      - bsc
+      - --nousb
+      - --syncmode=fast
+      - --nousb
+      - --cache=8192
+      - --maxpeers=100
+      - --metrics
+      - --pprof
+      - --ws
+      - --wsorigins="*"
+      - --wsapi
+      - eth,net,web3
+      - --wsport="8546"
+      - "0.0.0.0"
+      - --datadir
+      - "/var/lib/goethereum"
+      - --config 
+      - /config.toml
     logging:
       driver: "json-file"
       options:
