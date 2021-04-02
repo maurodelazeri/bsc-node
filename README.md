@@ -19,5 +19,20 @@ chmod 775 geth_linux
 ./geth_linux --datadir ./goethereum/ init genesis.json
 ```
 
+### Startup
 
-[original BSC repo](https://github.com/binance-chain/bsc)
+```
+docker-compose up -d
+```
+
+### Gotchas
+
+Make sure you have the latest `config.tom` and `genesis.json`
+
+## mainet
+wget   $(curl -s https://api.github.com/repos/binance-chain/bsc/releases/latest |grep browser_ |grep mainnet |cut -d\" -f4)
+unzip mainnet.zip
+
+## testnet
+wget   $(curl -s https://api.github.com/repos/binance-chain/bsc/releases/latest |grep browser_ |grep testnet |cut -d\" -f4)
+unzip testnet.zip
