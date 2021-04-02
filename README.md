@@ -7,6 +7,8 @@ docker exec bsc_geth bsc attach --exec eth.syncing
 ```
 ### Initializing the chain
 
+You need to follow this step only once
+
 https://docs.binance.org/smart-chain/developer/fullnode.html
 
 ```

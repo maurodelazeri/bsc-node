@@ -18,7 +18,8 @@ services:
       - "30311:30311/udp"
       - "30311:30311"
     volumes:
-      - ./goethereum:/root/.ethereum/
+      - ./bsc:/root/.bsc/
+      - ./config.toml:/config.toml
     stop_signal: SIGINT
     stop_grace_period: 2m
     command:
@@ -40,7 +41,7 @@ services:
       - eth,net,web3
       - --wsport=8547
       - --datadir
-      - "/root/.ethereum"
+      - "/root/.bsc"
       - --config 
       - /config.toml
     logging:
