@@ -37,3 +37,12 @@ unzip mainnet.zip
 ## testnet
 wget   $(curl -s https://api.github.com/repos/binance-chain/bsc/releases/latest |grep browser_ |grep testnet |cut -d\" -f4)
 unzip testnet.zip
+
+
+### Logging
+
+If you get a new `config.tom` make sure you execute it
+
+```
+sed -i '/Node\.LogConfig/,/^$/d' /config.toml
+```
