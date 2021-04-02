@@ -17,7 +17,7 @@ wget  https://github.com/binance-chain/bsc/releases/download/v1.0.7/geth_linux
 
 chmod 775 geth_linux
 
-./geth_linux --datadir ./goethereum/ init genesis.json
+./geth_linux --datadir ./bsc init genesis.json
 ```
 
 ### Startup
