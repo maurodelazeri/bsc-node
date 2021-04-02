@@ -1,4 +1,4 @@
-# Binance Smart Chain node Docker image
+# Binance Smart Chain Full Node
 
 https://docs.binance.org/smart-chain/developer/fullnode.html
 
