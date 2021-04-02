@@ -2,12 +2,6 @@
 
 https://docs.binance.org/smart-chain/developer/fullnode.html
 
-## Check sync status
-
-```
-docker exec bsc_geth bsc attach --exec eth.syncing
-```
-
 ### Initializing the chain
 
 You need to follow this step only once
@@ -24,6 +18,12 @@ chmod 775 geth_linux
 
 ```
 docker-compose up -d
+```
+
+## Check sync status
+
+```
+docker exec bsc_geth bsc attach --exec eth.syncing
 ```
 
 ### Gotchas
