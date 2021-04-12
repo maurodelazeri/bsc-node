@@ -32,13 +32,13 @@ Lifetime = 10800000000000
 
 [Node]
 IPCPath = "geth.ipc"
-HTTPHost = "localhost"
+HTTPHost = "0.0.0.0"
 NoUSB = true
 InsecureUnlockAllowed = false
-HTTPPort = 8545
-HTTPVirtualHosts = ["localhost"]
+HTTPPort = 8575
+HTTPVirtualHosts = ["0.0.0.0"]
 HTTPModules = ["eth", "net", "web3", "txpool", "parlia"]
-WSPort = 8546
+WSPort = 8547
 WSModules = ["net", "web3", "eth"]
 GraphQLPort = 8557
 GraphQLVirtualHosts = ["*"]
