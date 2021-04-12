@@ -12,8 +12,8 @@ services:
     hostname: bsc_geth
     restart: unless-stopped
     ports:
-      - "8547:8547" # Websocket
       - "8575:8575"
+      - "8547:8547" # Websocket
       - "8576:8576"
       - "8577:8577"
       - "30311:30311/udp"
@@ -30,20 +30,26 @@ services:
       - --nousb
       - --cache=8192
       - --maxpeers=100
-      - --metrics
       - --pprof
       - --rpc
-      - --rpcport=8575
-      - --rpcaddr=0.0.0.0
+      - --rpcaddr
+      - "0.0.0.0"
+      - --rpcvhosts
+      - "*"
+      - --rpccorsdomain
+      - "*"
       - --ws
-      - --wsaddr=0.0.0.0
-      - --wsorigins="*"
+      - --wsaddr
+      - "0.0.0.0"
+      - --wsorigins
+      - "*"
       - --wsapi
       - eth,net,web3
-      - --wsport=8547
+      - --wsport
+      - "8547"
       - --datadir
       - "/root/.ethereum/"
-      - --config 
+      - --config
       - /config.toml
     logging:
       driver: "json-file"

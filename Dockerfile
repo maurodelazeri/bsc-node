@@ -1,6 +1,5 @@
 FROM debian:bullseye-slim
 
-
 RUN apt-get update -y \
   && apt-get install -y curl jq unzip procps telnet \
   && apt-get clean \
@@ -13,6 +12,3 @@ RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/
     sed -i '/Node\.LogConfig/,/^$/d' /config.toml && \ 
     mv geth_linux /usr/local/bin/bsc && \
     chmod +x /usr/local/bin/bsc
-
-
-EXPOSE 8547 8575 8576 8577 30311 30311/udp
