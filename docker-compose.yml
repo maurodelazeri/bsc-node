@@ -19,8 +19,8 @@ services:
       - "30311:30311/udp"
       - "30311:30311"
     volumes:
-      - ./mainnet/bsc:/root/.ethereum/
-      - ./mainnet/config.toml:/config.toml
+      - ./data/mainnet/:/root/.ethereum/
+      - ./config/mainnet/config.toml:/config.toml
     stop_signal: SIGINT
     stop_grace_period: 2m
     command:
@@ -70,8 +70,8 @@ services:
       - "20311:30311/udp"
       - "20311:30311"
     volumes:
-      - ./testnet/bsc:/root/.ethereum/
-      - ./testnet/config.toml:/config.toml
+      - ./data/testnet/:/root/.ethereum/
+      - ./config/testnet/config.toml:/config.toml
     stop_signal: SIGINT
     stop_grace_period: 2m
     command:
