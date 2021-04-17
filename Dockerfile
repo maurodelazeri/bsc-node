@@ -9,6 +9,5 @@ ENV VERSION=1.0.7
 
 RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/v${VERSION}" | jq -c '.assets[] | select( .browser_download_url | contains("mainnet.zip") or contains("geth_linux")) | .browser_download_url' | xargs -n1 curl -LOJ && \
     unzip mainnet.zip -d / && \
-    sed -i '/Node\.LogConfig/,/^$/d' /config.toml && \ 
     mv geth_linux /usr/local/bin/bsc && \
     chmod +x /usr/local/bin/bsc

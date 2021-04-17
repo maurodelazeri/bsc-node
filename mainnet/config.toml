@@ -38,9 +38,9 @@ InsecureUnlockAllowed = false
 HTTPPort = 8575
 HTTPVirtualHosts = ["0.0.0.0"]
 HTTPModules = ["eth", "net", "web3", "txpool", "parlia"]
-WSPort = 8547
+WSPort = 8576
 WSModules = ["net", "web3", "eth"]
-GraphQLPort = 8557
+GraphQLPort = 8577
 GraphQLVirtualHosts = ["*"]
 
 [Node.P2P]

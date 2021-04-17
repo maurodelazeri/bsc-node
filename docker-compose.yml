@@ -3,13 +3,13 @@ version: "3"
 networks:
   default:
     external:
-      name: external-example
+      name: external
 
 services:
-  bsc_geth:
+  bsc_mainnet:
     image: zinnionlcc/bsc_geth
-    container_name: bsc_geth
-    hostname: bsc_geth
+    container_name: bsc_mainnet
+    hostname: bsc_mainnet
     restart: unless-stopped
     ports:
       - "8575:8575"
@@ -19,14 +19,14 @@ services:
       - "30311:30311/udp"
       - "30311:30311"
     volumes:
-      - ./bsc:/root/.ethereum/
-      - ./config.toml:/config.toml
+      - ./mainnet/bsc:/root/.ethereum/
+      - ./mainnet/config.toml:/config.toml
     stop_signal: SIGINT
     stop_grace_period: 2m
     command:
       - bsc
       - --nousb
-      - --syncmode=fast
+      - --syncmode=full
       - --nousb
       - --cache=8192
       - --maxpeers=100
@@ -56,3 +56,55 @@ services:
       options:
         max-size: "2m"
         max-file: "10"
+
+  bsc_testnet:
+    image: zinnionlcc/bsc_geth
+    container_name: bsc_testnet
+    hostname: bsc_testnet
+    restart: unless-stopped
+    ports:
+      - "7575:8575"
+      - "7547:8547" # Websocket
+      - "7576:8576"
+      - "7577:8577"
+      - "20311:30311/udp"
+      - "20311:30311"
+    volumes:
+      - ./testnet/bsc:/root/.ethereum/
+      - ./testnet/config.toml:/config.toml
+    stop_signal: SIGINT
+    stop_grace_period: 2m
+    command:
+      - bsc
+      - --nousb
+      - --syncmode=full
+      - --nousb
+      - --cache=8192
+      - --maxpeers=100
+      - --pprof
+      - --rpc
+      - --rpcaddr
+      - "0.0.0.0"
+      - --rpcvhosts
+      - "*"
+      - --rpccorsdomain
+      - "*"
+      - --ws
+      - --wsaddr
+      - "0.0.0.0"
+      - --wsorigins
+      - "*"
+      - --wsapi
+      - eth,net,web3
+      - --wsport
+      - "8547"
+      - --datadir
+      - "/root/.ethereum/"
+      - --config
+      - /config.toml
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2m"
+        max-file: "10"
+      
