@@ -26,10 +26,15 @@ services:
     command:
       - bsc
       - --nousb
-      - --syncmode=full
+      - --syncmode
+      - full
+      - --gcmode
+      - archive
       - --nousb
-      - --cache=8192
-      - --maxpeers=100
+      - --cache
+      - "8192"
+      - --maxpeers
+      - "100"
       - --pprof
       - --rpc
       - --rpcaddr
@@ -77,10 +82,15 @@ services:
     command:
       - bsc
       - --nousb
-      - --syncmode=full
+      - --syncmode
+      - full
+      - --gcmode
+      - archive
       - --nousb
-      - --cache=8192
-      - --maxpeers=100
+      - --cache
+      - "8192"
+      - --maxpeers
+      - "100"
       - --pprof
       - --rpc
       - --rpcaddr
